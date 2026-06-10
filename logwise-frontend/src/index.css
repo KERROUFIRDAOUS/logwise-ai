@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── CSS Variables ─── */
+:root {
+  --bg:      #0d0e12;
+  --bg2:     #13151c;
+  --bg3:     #1a1d27;
+  --border:  #242736;
+  --border2: #2e3245;
+  --text:    #eceef8;
+  --text2:   #8a90b0;
+  --text3:   #464d6a;
+  --blue:    #4f80ff;
+  --card-bg: #13151c;
+  --input-bg: #1a1d27;
+}
+
+.light {
+  --bg:      #f4f6fb;
+  --bg2:     #eaecf5;
+  --bg3:     #ffffff;
+  --border:  #d5d8ec;
+  --border2: #bcc0d8;
+  --text:    #0d1030;
+  --text2:   #3d4470;
+  --text3:   #8890b8;
+  --blue:    #3060e8;
+  --card-bg: #eaecf5;
+  --input-bg: #ffffff;
+}
+
+@layer base {
+  html, body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+  }
+}
+
+@layer utilities {
+  /* Card system using CSS vars */
+  .card {
+    background-color: var(--bg2) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1rem;
+    border-bottom: 1px solid var(--border);
+    background-color: var(--bg3) !important;
+  }
+  .card-label {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text2);
+  }
+  .result-card {
+    background-color: var(--bg2) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    animation: fadeIn 0.35s ease forwards;
+  }
+  .fix-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background-color: var(--bg3) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+    color: var(--text) !important;
+  }
+
+  /* Override gray Tailwind classes in light mode */
+  .light .text-gray-200 { color: var(--text) !important; }
+  .light .text-gray-300 { color: var(--text) !important; }
+  .light .text-gray-400 { color: var(--text2) !important; }
+  .light .text-gray-500 { color: var(--text3) !important; }
+  .light .text-gray-600 { color: var(--text3) !important; }
+  .light .text-white    { color: var(--text) !important; }
+
+  .light .bg-gray-800\/50 { background-color: var(--bg3) !important; }
+  .light .bg-lw-bg3       { background-color: var(--bg3) !important; }
+  .light .bg-lw-bg2       { background-color: var(--bg2) !important; }
+  .light .bg-lw-bg        { background-color: var(--bg)  !important; }
+
+  .light .border-gray-700 { border-color: var(--border) !important; }
+  .light .border-lw-border  { border-color: var(--border) !important; }
+  .light .border-lw-border2 { border-color: var(--border2) !important; }
+
+  /* Textarea & inputs in light mode */
+  .light textarea {
+    background-color: var(--input-bg) !important;
+    color: var(--text) !important;
+  }
+  .light input {
+    background-color: var(--input-bg) !important;
+    color: var(--text) !important;
+  }
+
+  /* Similar incidents dark cards */
+  .light .bg-lw-bg3.border.border-lw-border {
+    background-color: var(--bg3) !important;
+    border-color: var(--border) !important;
+  }
+
+  /* CSS var helpers */
+  .lw-bg    { background-color: var(--bg); }
+  .lw-bg2   { background-color: var(--bg2); }
+  .lw-bg3   { background-color: var(--bg3); }
+  .lw-border  { border-color: var(--border); }
+  .lw-border2 { border-color: var(--border2); }
+  .lw-text    { color: var(--text); }
+  .lw-text2   { color: var(--text2); }
+  .lw-text3   { color: var(--text3); }
+  .lw-blue    { color: var(--blue); }
+  .bg-lw-blue { background-color: var(--blue); }
+  .bg-lw-bg   { background-color: var(--bg); }
+  .bg-lw-bg2  { background-color: var(--bg2); }
+  .bg-lw-bg3  { background-color: var(--bg3); }
+  .border-lw-border  { border-color: var(--border); }
+  .border-lw-border2 { border-color: var(--border2); }
+  .text-lw-blue { color: var(--blue); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.35s ease forwards;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg2); }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }

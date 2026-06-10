@@ -1,0 +1,14 @@
+# Backend
+logwise-backend/src/main/resources/application.properties
+logwise-backend/target/
+logwise-backend/*.mv.db
+logwise-backend/*.trace.db
+
+# Frontend
+logwise-frontend/node_modules/
+logwise-frontend/dist/
+
+# IDE
+.idea/
+*.iml
+.vscode/

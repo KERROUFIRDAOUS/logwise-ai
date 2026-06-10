@@ -1,0 +1,24 @@
+server.port=8080
+
+# Groq API
+ai.api.key=YOUR_GROQ_API_KEY
+ai.api.url=https://api.groq.com/openai/v1/chat/completions
+ai.api.model=llama-3.3-70b-versatile
+ai.api.max-tokens=1000
+
+# CORS
+cors.allowed-origins=http://localhost:3000
+
+# Splunk
+splunk.host=YOUR_SPLUNK_HOST.splunkcloud.com
+splunk.hec.token=YOUR_HEC_TOKEN
+splunk.mcp.token=YOUR_MCP_TOKEN
+splunk.mcp.url=https://YOUR_SPLUNK_HOST.splunkcloud.com:443/en-US/splunkd/__raw/services/mcp
+
+# H2 Database
+spring.datasource.url=jdbc:h2:file:./logwise-history
+spring.datasource.driver-class-name=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
